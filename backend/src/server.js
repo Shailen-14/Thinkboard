@@ -1,17 +1,17 @@
 import express from "express";
 import cors from "cors";
 import path from "path";
-import cookieParser from "cookie-parser";
 
 import { ENV } from "./lib/env.js";
 import { connectDB } from "./lib/db.js";
 import notesRoute from "./routes/notes.route.js";
+import { rateLimiter } from "./middleware/rateLimiter.middleware.js";
 
 const app = express();
 
 app.use(express.json());
 app.use(cors({ origin: ENV.CLIENT_URL, credentials: true }));
-app.use(cookieParser());
+app.use(rateLimiter);
 
 app.use("/api/notes", notesRoute);
 
