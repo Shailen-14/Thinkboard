@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import HomePage from "./pages/HomePage";
 import CreatePage from "./pages/CreatePage";
 import NoteDetailPage from "./pages/NoteDetailPage";
+import EditPage from "./pages/EditPage";
 
 const App = () => {
   useEffect(() => {
@@ -29,6 +30,7 @@ const App = () => {
         <Route path="/" element={<HomePage />} />
         <Route path="/create" element={<CreatePage />} />
         <Route path="/note/:id" element={<NoteDetailPage />} />
+        <Route path="/edit/:id" element={<EditPage />} />
       </Routes>
     </div>
   );
